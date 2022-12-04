@@ -1,4 +1,4 @@
-import { ApolloClient, ApolloProvider } from '@apollo/client';
+import { ApolloClient, ApolloProvider, NormalizedCacheObject } from '@apollo/client';
 import { cache } from './cache';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -6,7 +6,10 @@ import Pages from './pages';
 import injectStyles from './styles';
 
 // Initialize ApolloClient
-
+const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
+  cache,
+  uri: "http://localhost:4000/graphql"
+});
 
 injectStyles();
 
